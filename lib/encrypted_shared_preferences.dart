@@ -6,7 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class EncryptedSharedPreferences {
   final cryptor = PlatformStringCryptor();
   final String randomKeyListKey = 'randomKeyList';
-  SharedPreferences prefs;
+  SharedPreferences? prefs;
 
   /// Optional: Pass custom SharedPreferences instance
   EncryptedSharedPreferences({this.prefs});
@@ -50,14 +50,14 @@ class EncryptedSharedPreferences {
 
     try {
       /// Get encrypted value
-      String encrypted = prefs.getString(key);
+      String? encrypted = prefs.getString(key);
 
       if (encrypted != null) {
         /// Get random key list index using the encrypted value as key
-        int index = int.parse(prefs.getString(encrypted));
+        int index = int.parse(prefs.getString(encrypted)!);
 
         /// Get random key from random key list using the index
-        List<String> randomKeyList = prefs.getStringList(randomKeyListKey);
+        List<String> randomKeyList = prefs.getStringList(randomKeyListKey)!;
         String randomKey = randomKeyList[index];
 
         /// Get decrypted value

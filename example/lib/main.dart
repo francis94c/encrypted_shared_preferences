@@ -17,8 +17,8 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-  final String title;
+  MyHomePage({Key? key, this.title}) : super(key: key);
+  final String? title;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -55,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(widget.title ?? ""),
       ),
       body: Form(
           key: _formKey,
@@ -68,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         InputDecoration(hintText: 'Type text here and save'),
                     controller: myController,
                     validator: (value) {
-                      if (value.isEmpty) {
+                      if (value!.isEmpty) {
                         return 'Please enter some text';
                       }
                       return null;
@@ -79,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
           )),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          if (_formKey.currentState.validate()) {
+          if (_formKey.currentState!.validate()) {
             encryptedSharedPreferences
                 .setString('sample', myController.text)
                 .then((bool success) {
