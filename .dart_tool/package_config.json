@@ -63,9 +63,9 @@
     },
     {
       "name": "flutter_string_encryption",
-      "rootUri": "file:///Users/francis/bin/flutter/.pub-cache/git/flutter_string_encryption-80003fef3c5d102e7eb3bd4c9801b97b44979086/",
+      "rootUri": "file:///Users/francis/bin/flutter/.pub-cache/git/flutter_string_encryption-f6b76ff3615475af6d68bef5fd1d4dd4e933bf56/",
       "packageUri": "lib/",
-      "languageVersion": "1.24"
+      "languageVersion": "2.12"
     },
     {
       "name": "flutter_test",
@@ -248,7 +248,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2021-04-22T06:58:28.302078Z",
+  "generated": "2021-04-22T10:39:13.647560Z",
   "generator": "pub",
   "generatorVersion": "2.13.0-211.6.beta"
 }

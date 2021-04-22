@@ -22,21 +22,21 @@ class EncryptedSharedPreferences {
 
   Future<bool> setString(String key, String value) async {
     /// Generate random key
-    final String randomKey = await cryptor.generateRandomKey();
+    final String? randomKey = await cryptor.generateRandomKey();
 
     /// Encrypt value
-    final String encryptedValue = await cryptor.encrypt(value, randomKey);
+    final String? encryptedValue = await cryptor.encrypt(value, randomKey);
 
     final prefs = await getInstance();
 
     /// Add generated random key to a list
     List<String> randomKeyList = prefs.getStringList(randomKeyListKey) ?? [];
-    randomKeyList.add(randomKey);
+    randomKeyList.add(randomKey!);
     await prefs.setStringList(randomKeyListKey, randomKeyList);
 
     /// Save random key list index, We used encrypted value as key so we could use that to access it later
     int index = randomKeyList.length - 1;
-    await prefs.setString(encryptedValue, index.toString());
+    await prefs.setString(encryptedValue!, index.toString());
 
     /// Save encrypted value
     bool success = await prefs.setString(key, encryptedValue);
@@ -61,7 +61,7 @@ class EncryptedSharedPreferences {
         String randomKey = randomKeyList[index];
 
         /// Get decrypted value
-        decrypted = await cryptor.decrypt(encrypted, randomKey);
+        decrypted = (await cryptor.decrypt(encrypted, randomKey))!;
       }
     } on MacMismatchException {
       /// Unable to decrypt (wrong key or forged data)

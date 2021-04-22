@@ -73,11 +73,11 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: HEAD
-      resolved-ref: "80003fef3c5d102e7eb3bd4c9801b97b44979086"
+      ref: f6b76ff3615475af6d68bef5fd1d4dd4e933bf56
+      resolved-ref: f6b76ff3615475af6d68bef5fd1d4dd4e933bf56
       url: "https://github.com/francis94c/flutter_string_encryption"
     source: git
-    version: "0.3.1"
+    version: "0.4.1-nullsafety.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter

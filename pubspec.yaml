@@ -15,6 +15,7 @@ dependencies:
   flutter_string_encryption:
     git:
       url: https://github.com/francis94c/flutter_string_encryption
+      ref: f6b76ff3615475af6d68bef5fd1d4dd4e933bf56
 
 dev_dependencies:
   flutter_test:
